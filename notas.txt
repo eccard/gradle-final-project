@@ -4,5 +4,17 @@ https://classroom.udacity.com/nanodegrees/nd801-br/parts/d8194dcf-78b6-4287-8c24
 
 https://github.com/udacity/ud867/tree/master/FinalProject
 
+(connect app to gce backend)
+https://github.com/GoogleCloudPlatform/gradle-appengine-templates/tree/77e9910911d5412e5efede5fa681ec105a0f02ad/HelloEndpoints#2-connecting-your-android-app-to-the-backend
+
+
 (Banner admob)
 https://developers.google.com/admob/android/quick-start
+
+sample
+https://github.com/GoogleCloudPlatform/android-docs-samples.git
+
+
+tested endpoints
+http://localhost:8080/_ah/api/myApi/v1/tellJoke
+http://localhost:8080/_ah/api/jokerApi/v1/tellJoke

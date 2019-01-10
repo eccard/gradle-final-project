@@ -12,7 +12,6 @@ buildscript {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.3"
 
     defaultConfig {
         applicationId "com.udacity.gradle.builditbigger"
@@ -35,7 +34,10 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project (':frontend')
     endpointsServer project(path: ':backend', configuration: 'endpoints')
+
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.google.android.gms:play-services-ads:11.8.0'
     implementation 'com.google.api-client:google-api-client:1.23.0'
