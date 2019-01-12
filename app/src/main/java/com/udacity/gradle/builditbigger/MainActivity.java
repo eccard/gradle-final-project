@@ -1,23 +1,27 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.ProgressBar;
+
+import com.eccard.frontend.JokeActivity;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements JokeFetchAsyncTask.JockerListener{
 
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new JokeFetchAsyncTask().execute(new Pair<Context, String>(this,""));
+        progressBar = findViewById(R.id.progressBar);
+
+
     }
 
 
@@ -44,8 +48,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+        new JokeFetchAsyncTask(this).execute();
     }
 
+    @Override
+    public void onJokeFetching() {
+        progressBar.setVisibility(View.VISIBLE);
 
+    }
+
+    @Override
+    public void onJokerFetched(String joke) {
+        progressBar.setVisibility(View.GONE);
+
+        Intent intent = new Intent(this, JokeActivity.class);
+        intent.putExtra(Intent.EXTRA_TEXT, joke);
+        startActivity(intent);
+
+        progressBar.setVisibility(View.GONE);
+    }
 }

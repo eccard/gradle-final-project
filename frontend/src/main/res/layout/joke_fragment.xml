@@ -8,5 +8,5 @@
     android:textSize="18sp"
     android:layout_margin="@dimen/default_margin"
     android:layout_centerInParent="true"
-    tools:context=".JokeActivityFragment"
+    tools:context=".JokeActivity"
     tools:text="The joke will be here" />
